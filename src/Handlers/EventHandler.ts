@@ -19,11 +19,11 @@ export default class EventHandler {
         const text = add
             ? `- ${group.subject || '___'} -\n\n💠 *Group Description:*\n${
                   group.desc
-              }\n\nHope you follow the rules and have fun!\n${event.participants
+              }\n\nنتمنى انك تمشي على القوانين وتستمتع\n${event.participants
                   .map((jid) => `@${jid.split('@')[0]}`)
                   .join(', ')}`
             : event.action === 'remove'
-            ? `@${event.participants[0].split('@')[0]} has left the chat 👋`
+            ? `@${event.participants[0].split('@')[0]} غادر المجموعة👋`
             : `@${event.participants[0].split('@')[0]} got ${this.client.util.capitalize(event.action)}d${
                   event.actor ? ` by @${event.actor.split('@')[0]}` : ''
               }`
