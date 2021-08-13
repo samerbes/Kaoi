@@ -7,7 +7,7 @@ export default class Command extends BaseCommand {
     constructor(client: WAClient, handler: MessageHandler) {
         super(client, handler, {
             command: 'disable',
-            description: 'Disables the given command from being used',
+            description: 'يمنع امر من الاستعمال',
             category: 'dev',
             dm: true,
             usage: `${client.config.prefix}disable [command] | (reason)`
