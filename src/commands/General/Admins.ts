@@ -15,7 +15,7 @@ export default class Command extends BaseCommand {
 
     run = async (M: ISimplifiedMessage): Promise<void> => {
         return void (await M.reply(
-            `مشرفين!\n[Tags Hidden]`,
+            `مشرفين!\n[المنشن مخفي]`,
             undefined,
             undefined,
             M.groupMetadata?.admins
