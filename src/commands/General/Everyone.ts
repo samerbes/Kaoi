@@ -7,7 +7,7 @@ export default class Command extends BaseCommand {
     constructor(client: WAClient, handler: MessageHandler) {
         super(client, handler, {
             command: 'everyone',
-            description: 'Tags all users in group chat',
+            description: 'يمنشن كل الاعضاء',
             aliases: ['all', 'tagall'],
             category: 'general',
             usage: `${client.config.prefix}everyone`,
@@ -17,7 +17,7 @@ export default class Command extends BaseCommand {
 
     run = async (M: ISimplifiedMessage): Promise<void> => {
         return void (await M.reply(
-            `${M.groupMetadata?.subject || 'EVERYONE'}\n*[TAGS HIDDEN]*`,
+            `${M.groupMetadata?.subject || 'الكل'}\n*[المنشن مخفي]*`,
             undefined,
             undefined,
             M.groupMetadata?.participants.map((user) => user.jid)
