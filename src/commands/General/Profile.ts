@@ -9,7 +9,7 @@ export default class Command extends BaseCommand {
     constructor(client: WAClient, handler: MessageHandler) {
         super(client, handler, {
             command: 'profile',
-            description: 'Displays user-profile 🌟',
+            description: 'يظهر معلومات المستخدم 🌟',
             category: 'general',
             usage: `${client.config.prefix}profile (@tag)`,
             aliases: ['p']
@@ -41,9 +41,9 @@ export default class Command extends BaseCommand {
             MessageType.image,
             undefined,
             undefined,
-            `🎋 *Username: ${username}*\n\n🎫 *About: ${
+            `🎋 *الاسم: ${username}*\n\n🎫 *الوصف: ${
                 (await this.client.getStatus(user)).status || 'None'
-            }*\n\n🌟 *XP: ${data.Xp || 0}*\n\n👑 *Admin: ${
+            }*\n\n🌟 *XP: ${data.Xp || 0}*\n\n👑 *مشرف: ${
                 M.groupMetadata?.admins?.includes(user) || false
             }*\n\n❌ *Ban ${data.ban || false}*`
         )
