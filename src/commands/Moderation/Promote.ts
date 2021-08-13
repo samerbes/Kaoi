@@ -8,7 +8,7 @@ export default class Command extends BaseCommand {
         super(client, handler, {
             adminOnly: true,
             command: 'promote',
-            description: 'promotes the mentioned users',
+            description: 'يعطي شخص اشراف',
             category: 'moderation',
             usage: `${client.config.prefix}promote [@mention | tag]`,
             baseXp: 10
@@ -17,16 +17,16 @@ export default class Command extends BaseCommand {
 
     run = async (M: ISimplifiedMessage): Promise<void> => {
         if (!M.groupMetadata?.admins?.includes(this.client.user.jid))
-            return void M.reply(`❌ Failed to ${this.config.command} as I'm not an admin`)
+            return void M.reply(`❌ مقدر ${this.config.command} aلان ما معي اشراف`)
         if (M.quoted?.sender) M.mentioned.push(M.quoted.sender)
-        if (!M.mentioned.length) return void M.reply(`Please tag the users you want to ${this.config.command}`)
+        if (!M.mentioned.length) return void M.reply(`منشن الي تبي يصير مشرف ${this.config.command}`)
         M.mentioned.forEach(async (user) => {
             const usr = this.client.contacts[user]
             const username = usr.notify || usr.vname || usr.name || user.split('@')[0]
-            if (M.groupMetadata?.admins?.includes(user)) M.reply(`❌ Skipped *${username}* as they're already an admin`)
+            if (M.groupMetadata?.admins?.includes(user)) M.reply(`❌ سكب *${username}* لانه اصلا مشرف`)
             else {
                 await this.client.groupMakeAdmin(M.from, [user])
-                M.reply(`👑 Successfully Promoted *${username}*`)
+                M.reply(`👑 تم إعطاء الاشراف *${username}*`)
             }
         })
     }
